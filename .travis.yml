@@ -1,0 +1,10 @@
+language: bash
+services: docker
+
+install: true
+
+script:
+    - docker build -t bitbucket-android-pipeline .
+
+after_script:
+    - docker images

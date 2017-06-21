@@ -18,9 +18,8 @@ ENV GRADLE_OPTS "-XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
 # Never ask for confirmations
 ENV DEBIAN_FRONTEND noninteractive
 
-# Setup locale
+# Default locale
 ENV LANG en_US.UTF-8
-RUN locale-gen $LANG
 
 # Working directory
 WORKDIR /opt
@@ -29,7 +28,7 @@ WORKDIR /opt
 RUN apt-get update && \
     apt-get dist-upgrade -y
 
-# Install Packages
+# Install packages
 RUN dpkg --add-architecture i386 && \
     apt-get install -y \
         autoconf \
@@ -50,6 +49,7 @@ RUN dpkg --add-architecture i386 && \
         libmpfr-dev \
         libxslt-dev \
         libxml2-dev \
+        locales \
         m4 \
         make \
         ncurses-dev \
@@ -64,6 +64,9 @@ RUN dpkg --add-architecture i386 && \
         zip \
         zlib1g-dev \
         --no-install-recommends
+
+# Set locale
+RUN locale-gen $LANG
 
 # Install Oracle JDK
 RUN echo "debconf shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections && \
