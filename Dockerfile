@@ -26,7 +26,7 @@ RUN locale-gen $LANG
 WORKDIR /opt
 
 # Update apt-get
-RUN apt-get update &&
+RUN apt-get update && \
     apt-get dist-upgrade -y
 
 # Install Packages
