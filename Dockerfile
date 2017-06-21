@@ -99,7 +99,7 @@ RUN echo "Install platform-tools" && \
     echo "Install google-play-services" && \
     echo y | ./android --silent update sdk --no-ui --all --filter google-play-services && \
     echo "Install google-repository" && \
-    echo y | ./android --silent update sdk --no-ui --all --filter google-repository && \
+    echo y | ./android --silent update sdk --no-ui --all --filter google-repository
 
 # Cleanup
 RUN apt-get clean && \
