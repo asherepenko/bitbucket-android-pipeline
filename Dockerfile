@@ -29,8 +29,7 @@ RUN apt-get update && \
     apt-get dist-upgrade -y
 
 # Install packages
-RUN dpkg --add-architecture i386 && \
-    apt-get install -y \
+RUN apt-get install -y --no-install-recommends \
         autoconf \
         build-essential \
         bzip2 \
@@ -62,8 +61,7 @@ RUN dpkg --add-architecture i386 && \
         unzip \
         wget \
         zip \
-        zlib1g-dev \
-        --no-install-recommends
+        zlib1g-dev
 
 # Set locale
 RUN locale-gen $LANG
