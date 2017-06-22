@@ -71,10 +71,7 @@ RUN echo "Update Android SDK" && \
     echo "Install android-m2repository" && \
     $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" && \
     echo "Install google_play_services" && \
-    $ANDROID_HOME/tools/bin/sdkmanager "extras;google;google_play_services" && \
-    echo "Accept Terms and Conditions" && \
-    $ANDROID_HOME/tools/bin/sdkmanager --licenses
-
+    $ANDROID_HOME/tools/bin/sdkmanager "extras;google;google_play_services"
 # Cleanup
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /var/tmp* /tmp/*
@@ -83,3 +80,7 @@ RUN apt-get clean && \
 ENV TERM dumb
 ENV JAVA_OPTS "-Xms4096m -Xmx4096m"
 ENV GRADLE_OPTS "-XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
+
+# Confirm Terms and Conditions of the Android SDK
+RUN mkdir -p "${ANDROID_HOME}/licenses" || true && \
+    echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > "${ANDROID_HOME}/licenses/android-sdk-license"
