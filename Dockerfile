@@ -63,6 +63,7 @@ RUN echo "Update Android SDK" && \
     echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;google;m2repository" && \
     echo "Install google_play_services" && \
     echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;google;google_play_services"
+
 # Cleanup
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /var/tmp* /tmp/*
