@@ -64,7 +64,7 @@ RUN echo "Update Android SDK" && \
     echo "Install google_play_services" && \
     $ANDROID_HOME/tools/bin/sdkmanager "extras;google;google_play_services" && \
     echo "Terms and Conditions"
-    $ANDROID_HOMEtools/bin/sdkmanager --licenses
+    $ANDROID_HOME/tools/bin/sdkmanager --licenses
 
 # Cleanup
 RUN apt-get clean && \
