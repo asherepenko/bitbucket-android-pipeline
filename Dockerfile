@@ -63,7 +63,7 @@ RUN echo "Update Android SDK" && \
     $ANDROID_HOME/tools/bin/sdkmanager "extras;google;m2repository" && \
     echo "Install google_play_services" && \
     $ANDROID_HOME/tools/bin/sdkmanager "extras;google;google_play_services" && \
-    echo "Terms and Conditions"
+    echo "Terms and Conditions" && \
     $ANDROID_HOME/tools/bin/sdkmanager --licenses
 
 # Cleanup
