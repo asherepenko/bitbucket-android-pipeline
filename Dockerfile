@@ -60,7 +60,7 @@ RUN wget -q -O sdk-tools.zip https://dl.google.com/android/repository/sdk-tools-
     rm -f sdk-tools.zip
 
 # Install Android Tools and Repos
-RUN echo "Update SDK" && \
+RUN echo "Update Android SDK" && \
     $ANDROID_HOME/tools/bin/sdkmanager --update && \
     echo "Install android-26" && \
     $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-26" && \
@@ -72,8 +72,9 @@ RUN echo "Update SDK" && \
     $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" && \
     echo "Install google_play_services" && \
     $ANDROID_HOME/tools/bin/sdkmanager "extras;google;google_play_services" && \
-    echo "Accept terms and conditions" && \
+    echo "Accept Terms and Conditions" && \
     $ANDROID_HOME/tools/bin/sdkmanager --licenses
+
 # Cleanup
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /var/tmp* /tmp/*
