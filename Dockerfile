@@ -52,19 +52,19 @@ RUN wget -q -O sdk-tools.zip https://dl.google.com/android/repository/sdk-tools-
 
 # Install Android Tools and Repos
 RUN echo "Update Android SDK" && \
-    $ANDROID_HOME/tools/bin/sdkmanager --update && \
+    echo y | $ANDROID_HOME/tools/bin/sdkmanager --update && \
     echo "Install android-26" && \
-    $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-26" && \
+    echo y | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-26" && \
     echo "Install build-tools-26.0.0" && \
-    $ANDROID_HOME/tools/bin/sdkmanager "build-tools;26.0.0" && \
+    echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;26.0.0" && \
     echo "Install android-m2repository" && \
-    $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" && \
+    echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" && \
     echo "Install google-m2repository" && \
     $ANDROID_HOME/tools/bin/sdkmanager "extras;google;m2repository" && \
-    echo "Install google_play_services" && \
+    echo y | echo "Install google_play_services" && \
     $ANDROID_HOME/tools/bin/sdkmanager "extras;google;google_play_services" && \
     echo "Terms and Conditions" && \
-    $ANDROID_HOME/tools/bin/sdkmanager --licenses
+    echo y | $ANDROID_HOME/tools/bin/sdkmanager --licenses
 
 # Cleanup
 RUN apt-get clean && \
