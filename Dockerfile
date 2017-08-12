@@ -55,8 +55,8 @@ RUN echo "Update Android SDK" && \
     echo y | $ANDROID_HOME/tools/bin/sdkmanager --update && \
     echo "Install android-26" && \
     echo y | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-26" && \
-    echo "Install build-tools-26.0.0" && \
-    echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;26.0.0" && \
+    echo "Install build-tools-26.0.1" && \
+    echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;26.0.1" && \
     echo "Install android-m2repository" && \
     echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" && \
     echo "Install google-m2repository" && \
